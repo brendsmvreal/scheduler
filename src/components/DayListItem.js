@@ -6,22 +6,24 @@ import { render } from "@testing-library/react";
 
 export default function DayListItem(props) {
   // component takes 3 tributes, names - spots - selected
-  const dayClass = classNames("day-list__item", {
+  const dayClass = classNames(
+    "day-list__item", {
     "day-list__item--selected": props.selected,
     "day-list__item--full": props.spots === 0,
   });
-
-  const formatSpots = function (spots) {
+  
+  const formatSpots = function(spots) {
+    
     if (spots === 0) {
-      return "no spots remaining";
+      return 'no spots remaining';
     }
     if (spots === 1) {
-      return spots + " spot remaining";
+      return (spots + ' spot remaining');
     } else {
-      return spots + " spots remaining";
+      return (spots + ' spots remaining');
     }
   };
-
+  
   return (
     // <li> is the entire day <h2> display the day name <h3> spots remaining
     <li className={dayClass} onClick={() => props.setDay(props.name)}>
