@@ -2,7 +2,7 @@ import React from "react";
 import classNames from "classnames";
 
 import "components/DayListItem.scss";
-import { render } from "@testing-library/react";
+
 
 export default function DayListItem(props) {
   // component takes 3 tributes, names - spots - selected
