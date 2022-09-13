@@ -1,6 +1,6 @@
 import React from "react";
 
-import DayListItem from "components/DayListItem.js";
+import DayListItem from "./DayListItem.js";
 
 export default function DayList(props) {
   // days array to be passed to our <DayList> component as a prop
@@ -13,7 +13,6 @@ export default function DayList(props) {
         spots={day.spots}
         selected={day.name === props.day}
         setDay={props.setDay}
-        // setDay={props.onChange}
       />
     );
   });
