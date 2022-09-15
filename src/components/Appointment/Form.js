@@ -43,7 +43,7 @@ export default function Form(props) {
           <Button danger onClick={cancel}>
             Cancel
           </Button>
-          <Button confirm>Save</Button>
+          <Button confirm onClick={props.onConfirm}>Save</Button>
         </section>
       </section>
     </main>
