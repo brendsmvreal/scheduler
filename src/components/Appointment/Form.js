@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
-import Button from "components/Button";
+import Button from "components/Button"; // parent 
 
-import InterviewerList from "components/InterviewerList";
+import InterviewerList from "components/InterviewerList"; // parent
 
 export default function Form(props) {
   const [student, setStudent] = useState(props.student || "");
