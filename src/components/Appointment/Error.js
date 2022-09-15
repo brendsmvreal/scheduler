@@ -16,6 +16,3 @@ export default function Error(props) {
     </main>
   );
 }
-
-/*  message="Could not delete appointment."
-      onClose={action("onClose")} */
