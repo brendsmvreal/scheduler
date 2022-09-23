@@ -48,10 +48,7 @@ export default function Application(props) {
   if (state.days) {
     dailyAppointments = getAppointmentsForDay(state, state.day);
   }
-
-  const appointments = getAppointmentsForDay(state, state.day);
-
-  const schedule = appointments.map((appointment) => {
+  const schedule = dailyAppointments.map((appointment) => {
     const interview = getInterview(state, appointment.interview);
     // props could be represented by ... spread: key={appointment.id}{... appointment}
     return (
