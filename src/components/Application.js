@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Application.scss";
 import Appointment from "./Appointment";
 import DayList from "./DayList";
 import axios from "axios";
-import { useEffect } from "react";
-import { getAppointmentsForDay, getInterview } from "helpers/selectors";
+import {
+  getAppointmentsForDay,
+  getInterview,
+  getInterviewersForDay,
+} from "helpers/selectors";
 
 export default function Application(props) {
   // Using spread operator to create a new object with all the existing keys of state
@@ -48,6 +51,7 @@ export default function Application(props) {
   if (state.days) {
     dailyAppointments = getAppointmentsForDay(state, state.day);
   }
+  const interviewers = getInterviewersForDay(state, state.day);
   const schedule = dailyAppointments.map((appointment) => {
     const interview = getInterview(state, appointment.interview);
     // props could be represented by ... spread: key={appointment.id}{... appointment}
@@ -57,6 +61,7 @@ export default function Application(props) {
         id={appointment.id}
         time={appointment.time}
         interview={interview}
+        interviewers={interviewers}
       />
     );
   });
