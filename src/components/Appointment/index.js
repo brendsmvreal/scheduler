@@ -8,7 +8,6 @@ import "./styles.scss";
 
 export default function Appointment(props) {
   // props.interview ?
-  console.log("props.student------", props.student);
   return (
     <article className="appointment">
       <header>
