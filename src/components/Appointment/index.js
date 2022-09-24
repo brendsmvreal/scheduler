@@ -6,12 +6,11 @@ import useVisualMode from "hooks/useVisualMode";
 import "./styles.scss";
 import Form from "./Form";
 
-export default function Appointment(props) {
-  // props.interview ?
-  const EMPTY = "EMPTY";
-  const SHOW = "SHOW";
-  const CREATE = "CREATE";
+const EMPTY = "EMPTY";
+const SHOW = "SHOW";
+const CREATE = "CREATE";
 
+export default function Appointment(props) {
   const { mode, transition, back } = useVisualMode(
     props.interview ? SHOW : EMPTY
   );
@@ -24,7 +23,7 @@ export default function Appointment(props) {
         {mode === SHOW && (
           <Show
             student={props.interview.student}
-            interviewer={props.interview.interviewer.name}
+            interviewer={[props.interview.interviewer.name]}
           />
         )}
         {mode === CREATE && (
