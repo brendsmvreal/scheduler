@@ -51,9 +51,9 @@ export default function Application(props) {
   if (state.days) {
     dailyAppointments = getAppointmentsForDay(state, state.day);
   }
-  function bookInterview(id, interview) {
+  const bookInterview = function (id, interview) {
     console.log(id, interview);
-  }
+  };
   const interviewers = getInterviewersForDay(state, state.day);
   const schedule = dailyAppointments.map((appointment) => {
     const interview = getInterview(state, appointment.interview);
@@ -89,8 +89,8 @@ export default function Application(props) {
         />
       </section>
       <section className="schedule">
-        <Appointment key="last" time="5pm" />
         {schedule}
+        <Appointment key="last" time="5pm" />
       </section>
     </main>
   );
