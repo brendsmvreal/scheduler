@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import Button from "components/Button"; // parent 
+import Button from "components/Button"; // parent
 
 import InterviewerList from "components/InterviewerList"; // parent
 
@@ -43,7 +43,9 @@ export default function Form(props) {
           <Button danger onClick={cancel}>
             Cancel
           </Button>
-          <Button confirm onClick={props.onConfirm}>Save</Button>
+          <Button confirm onClick={() => props.onSave(student, interviewer)}>
+            Save
+          </Button>
         </section>
       </section>
     </main>
