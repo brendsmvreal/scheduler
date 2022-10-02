@@ -21,6 +21,7 @@ export default function Appointment(props) {
       interviewer,
     };
     console.log(props.bookInterview(props.id, interview));
+    transition(SHOW);
   };
   // console.log("props.interviewer----", props.interviewers);
 
