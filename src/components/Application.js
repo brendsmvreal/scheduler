@@ -25,8 +25,8 @@ export default function Application(props) {
 
   useEffect(() => {
     const daysUrl = `http://localhost:8001/api/days`;
-    const appointmentsUrl = "http://localhost:8001/api/appointments";
-    const interviewersUrl = "http://localhost:8001/api/interviewers";
+    const appointmentsUrl = `http://localhost:8001/api/appointments`;
+    const interviewersUrl = `http://localhost:8001/api/interviewers`;
 
     // Promise.all will make all requests before updating the state - we can make sure that state won't change
     Promise.all([
@@ -60,19 +60,24 @@ export default function Application(props) {
       ...state.appointments,
       [id]: appointment,
     };
-    setState({ ...state, appointments });
-    console.log(id, interview);
+
+    return axios
+      .put(`http://localhost:8001/api/appointments/${id}`, { interview })
+      .then(() => {
+        setState({ ...state, appointments });
+      });
   };
+
+  // gets intereviewers for certain day
   const interviewers = getInterviewersForDay(state, state.day);
+  // gets appointments for certain day
   const schedule = dailyAppointments.map((appointment) => {
-    const interview = getInterview(state, appointment.interview);
-    // props could be represented by ... spread: key={appointment.id}{... appointment}
     return (
       <Appointment
         key={appointment.id}
         id={appointment.id}
         time={appointment.time}
-        interview={interview}
+        interview={getInterview(state, appointment.interview)}
         interviewers={interviewers}
         bookInterview={bookInterview}
       />
