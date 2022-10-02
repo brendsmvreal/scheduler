@@ -20,16 +20,8 @@ export function getInterview(state, interview) {
   if (!interview) {
     return null;
   } else {
-    const interviewerId = interview.interviewer;
-
-    Object.assign(interviewObject, {
-      student: interview.student,
-      interviewer: {
-        id: interviewerId,
-        name: state.interviewers[interviewerId].name,
-        avatar: state.interviewers[interviewerId].avatar,
-      },
-    });
+    interviewObject.student = interview.student;
+    interviewObject.interviewer = state.interviewers[interview.interviewer];
   }
   return interviewObject;
 }
