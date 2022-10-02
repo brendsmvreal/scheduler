@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-
-import Button from "components/Button"; // parent
-
-import InterviewerList from "components/InterviewerList"; // parent
+import Button from "components/Button";
+import InterviewerList from "components/InterviewerList";
 
 export default function Form(props) {
   const [student, setStudent] = useState(props.student || "");
@@ -18,6 +16,11 @@ export default function Form(props) {
     props.onCancel();
   };
 
+  const saveForm = function () {
+    props.onSave(student, interviewer);
+  };
+
+  //console.log(props.interviewers)
   return (
     <main className="appointment__card appointment__card--create">
       <section className="appointment__card-left">
@@ -32,10 +35,9 @@ export default function Form(props) {
           />
         </form>
         <InterviewerList
-          /* your code goes here */
           interviewers={props.interviewers}
-          value={interviewer} // interviewer by it self is a number
-          onChange={setInterviewer} // just passing reference
+          value={interviewer}
+          onChange={setInterviewer}
         />
       </section>
       <section className="appointment__card-right">
@@ -43,7 +45,7 @@ export default function Form(props) {
           <Button danger onClick={cancel}>
             Cancel
           </Button>
-          <Button confirm onClick={() => props.onSave(student, interviewer)}>
+          <Button confirm onClick={saveForm}>
             Save
           </Button>
         </section>
