@@ -52,6 +52,15 @@ export default function Application(props) {
     dailyAppointments = getAppointmentsForDay(state, state.day);
   }
   const bookInterview = function (id, interview) {
+    const appointment = {
+      ...state.appointments[id],
+      interview: { ...interview },
+    };
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment,
+    };
+    setState({ ...state, appointments });
     console.log(id, interview);
   };
   const interviewers = getInterviewersForDay(state, state.day);
