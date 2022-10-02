@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { getAppointmentsForDay } from "helpers/selectors";
 
 /*
 The state object will maintain the same structure.
@@ -20,24 +21,46 @@ export default function useApplicationData() {
     setState({ ...state, day });
   };
 
+  const updatedDaysArray = function (newState) {
+    // finds day in state
+    const findDay = newState.days.find((day) => day.name === newState.day);
+    // update the findDay.spots with the spots remaining
+    findDay.spots = countSpots(newState);
+    // gets the index of the day in newState
+    const findDayIndex = newState.days.findIndex(
+      (day) => day.name === newState.day
+    );
+    // creates a copy of the days array
+    const daysState = [...newState.days];
+    // updates findDay in daysState
+    daysState[findDayIndex] = findDay;
+    // sets the newState with the updated copy of the days array
+    return daysState;
+  };
+
   const bookInterview = function (id, interview) {
     const appointment = {
       ...state.appointments[id],
       interview: { ...interview },
     };
-    //console.log(appointment)
     const appointments = {
       ...state.appointments,
       [id]: appointment,
     };
 
-    //console.log(interview)
     return axios
       .put(`http://localhost:8001/api/appointments/${id}`, { interview })
       .then(() => {
+        // gets the new days array and updates
+        // passes a copy of state/appointments
+        const updatedDays = updatedDaysArray({
+          ...state,
+          appointments,
+        });
         setState({
           ...state,
           appointments,
+          days: [...updatedDays],
         });
       });
   };
@@ -54,11 +77,31 @@ export default function useApplicationData() {
     return axios
       .delete(`http://localhost:8001/api/appointments/${id}`)
       .then(() => {
-        setState({
+        // gets the new days array and updates
+        // passes a copy of state/appointments
+        const updatedDays = updatedDaysArray({
           ...state,
           appointments,
         });
+        setState({
+          ...state,
+          appointments,
+          days: [...updatedDays],
+        });
       });
+  };
+
+  const countSpots = function (newState) {
+    let spots = 0;
+    // getAppointmentsForDay gets the appointments array
+    // loop through appointments array in (day) - found by getAppointmentsForDay
+    for (let appointment of getAppointmentsForDay(newState, newState.day)) {
+      //check if the interview has a null value
+      if (appointment.interview === null) {
+        spots += 1;
+      }
+    }
+    return spots;
   };
 
   useEffect(() => {
@@ -86,5 +129,5 @@ export default function useApplicationData() {
     });
   }, []);
 
-  return { state, setDay, bookInterview, cancelInterview };
+  return { state, setDay, bookInterview, cancelInterview, countSpots };
 }
