@@ -38,7 +38,7 @@ export default function Appointment(props) {
         {mode === SHOW && (
           <Show
             student={props.interview.student}
-            interviewer={[props.interview.interviewer.name]}
+            interviewer={props.interview.interviewer.name}
           />
         )}
         {mode === CREATE && (
