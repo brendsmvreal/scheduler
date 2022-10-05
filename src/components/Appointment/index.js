@@ -19,20 +19,19 @@ export default function Appointment(props) {
   const EDIT = "EDIT";
   const ERROR_SAVE = "ERROR_SAVE";
   const ERROR_DELETE = "ERROR_DELETE";
-
   const { mode, transition, back } = useVisualMode(
     props.interview ? SHOW : EMPTY
   );
 
-  const confirm = function () {
+  function confirm() {
     transition(CONFIRM);
-  };
+  }
 
-  const editForm = function () {
+  const editForm = () => {
     transition(EDIT);
   };
 
-  const save = function (name, interviewer) {
+  function save(name, interviewer) {
     const interview = {
       student: name,
       interviewer,
@@ -41,22 +40,18 @@ export default function Appointment(props) {
     props
       .bookInterview(props.id, interview)
       .then(() => transition(SHOW))
-      .catch((error) => transition(ERROR_SAVE));
-  };
+      .catch((error) => transition(ERROR_SAVE, true));
+  }
 
-  const deleteInterview = function () {
+  function deleteInterview(event) {
     transition(DELETE, true);
     props
       .cancelInterview(props.id)
       .then(() => transition(EMPTY))
-      .catch((error) => {
-        transition(ERROR_DELETE, true);
-      });
-  };
-  // console.log("props.interviewer----", props.interviewers);
-
+      .catch((error) => transition(ERROR_DELETE, true));
+  }
   return (
-    <article className="appointment">
+    <article className="appointment" data-testid="appointment">
       <header>
         <Header time={props.time} />
         {mode === EMPTY && <Empty onAdd={() => transition(CREATE)} />}
