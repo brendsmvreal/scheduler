@@ -21,6 +21,31 @@ export default function useApplicationData() {
     setState({ ...state, day });
   };
 
+  const bookInterview = function (id, interview) {
+    const appointment = {
+      ...state.appointments[id],
+      interview: { ...interview },
+    };
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment,
+    };
+
+    return axios.put(`api/appointments/${id}`, { interview }).then(() => {
+      // gets the new days array and updates
+      // passes a copy of state/appointments
+      const updatedDays = updatedDaysArray({
+        ...state,
+        appointments,
+      });
+      setState({
+        ...state,
+        appointments,
+        days: [...updatedDays],
+      });
+    });
+  };
+
   const updatedDaysArray = function (newState) {
     // finds day in state
     const findDay = newState.days.find((day) => day.name === newState.day);
@@ -38,33 +63,6 @@ export default function useApplicationData() {
     return daysState;
   };
 
-  const bookInterview = function (id, interview) {
-    const appointment = {
-      ...state.appointments[id],
-      interview: { ...interview },
-    };
-    const appointments = {
-      ...state.appointments,
-      [id]: appointment,
-    };
-
-    return axios
-      .put(`http://localhost:8001/api/appointments/${id}`, { interview })
-      .then(() => {
-        // gets the new days array and updates
-        // passes a copy of state/appointments
-        const updatedDays = updatedDaysArray({
-          ...state,
-          appointments,
-        });
-        setState({
-          ...state,
-          appointments,
-          days: [...updatedDays],
-        });
-      });
-  };
-
   const cancelInterview = function (id) {
     const appointment = {
       ...state.appointments[id],
@@ -74,21 +72,19 @@ export default function useApplicationData() {
       ...state.appointments,
       [id]: appointment,
     };
-    return axios
-      .delete(`http://localhost:8001/api/appointments/${id}`)
-      .then(() => {
-        // gets the new days array and updates
-        // passes a copy of state/appointments
-        const updatedDays = updatedDaysArray({
-          ...state,
-          appointments,
-        });
-        setState({
-          ...state,
-          appointments,
-          days: [...updatedDays],
-        });
+    return axios.delete(`/api/appointments/${id}`).then(() => {
+      // gets the new days array and updates
+      // passes a copy of state/appointments
+      const updatedDays = updatedDaysArray({
+        ...state,
+        appointments,
       });
+      setState({
+        ...state,
+        appointments,
+        days: [...updatedDays],
+      });
+    });
   };
 
   const countSpots = function (newState) {
@@ -105,28 +101,27 @@ export default function useApplicationData() {
   };
 
   useEffect(() => {
-    const daysUrl = `http://localhost:8001/api/days`;
-    const appointmentsUrl = `http://localhost:8001/api/appointments`;
-    const interviewersUrl = `http://localhost:8001/api/interviewers`;
+    const daysUrl = `/api/days`;
+    const appointmentsUrl = `/api/appointments`;
+    const interviewersUrl = `/api/interviewers`;
 
     // Promise.all will make all requests before updating the state - we can make sure that state won't change
     Promise.all([
       axios.get(daysUrl),
       axios.get(appointmentsUrl),
       axios.get(interviewersUrl),
-    ]).then((all) => {
-      const newDaysState = all[0].data;
-      const newAppointmentsState = all[1].data;
-      const newInterviewersState = all[2].data;
-
-      setState((prev) => ({
-        ...prev,
-        // day: newDaysState[0].name,
-        days: newDaysState,
-        appointments: newAppointmentsState,
-        interviewers: newInterviewersState,
-      }));
-    });
+    ])
+      .then(([days, appointments, interviewers]) => {
+        setState((prev) => ({
+          ...prev,
+          days: days.data,
+          appointments: appointments.data,
+          interviewers: interviewers.data,
+        }));
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
 
   return { state, setDay, bookInterview, cancelInterview, countSpots };
