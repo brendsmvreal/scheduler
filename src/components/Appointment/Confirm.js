@@ -16,5 +16,3 @@ export default function Confirm(props) {
     </main>
   );
 }
-/* onConfirm={action("onConfirm")}
-onCancel={action("onCancel")} */
