@@ -10,7 +10,7 @@ Cypress and Jest frameworks are also used to ensure further testing to provide e
 
 ## Gifs
 
-![Main Page](https://media4.giphy.com/media/Ri8OoIqQWyjsAGpMEk/giphy.gif =500x300)
+<iframe src="https://giphy.com/embed/Ri8OoIqQWyjsAGpMEk" width="480" height="224" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/Ri8OoIqQWyjsAGpMEk">via GIPHY</a></p>
 
 ## Setup
 
