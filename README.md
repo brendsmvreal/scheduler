@@ -12,8 +12,7 @@ Cypress and Jest frameworks are also used to ensure further testing to provide e
 
 #### Create, Edit, Update and Delete an interview.
 
-![Main Page](https://media4.giphy.com/media/Ri8OoIqQWyjsAGpMEk/giphy.gif)
-<img src="https://media4.giphy.com/media/Ri8OoIqQWyjsAGpMEk/giphy.gif" width="480" height="224"></img>
+<img src="https://media4.giphy.com/media/Ri8OoIqQWyjsAGpMEk/giphy.gif" width="600" height="400"></img>
 
 ## Setup
 
