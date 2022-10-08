@@ -14,8 +14,13 @@ Cypress and Jest frameworks are also used to ensure further testing to provide e
 
 <img src="https://media4.giphy.com/media/Ri8OoIqQWyjsAGpMEk/giphy.gif" width="480px" height="auto"></img>
 
-![Main Page](https://github.com/brendsmvreal/scheduler/blob/master/media/mainpage.png)
-![Appointment Saved](https://github.com/brendsmvreal/scheduler/blob/master/media/apptsaved.png)
+#### Main page
+
+<img src="https://github.com/brendsmvreal/scheduler/blob/master/media/mainpage.png" width="720px" height="auto"></img>
+
+#### Appoitment booked
+
+<img src="https://github.com/brendsmvreal/scheduler/blob/master/media/savingappt.png" width="720px" height="auto"></img>
 
 ## Setup
 
