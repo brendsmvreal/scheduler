@@ -4,6 +4,7 @@ import DayListItem from "./DayListItem.js";
 
 export default function DayList(props) {
   // days array to be passed to our <DayList> component as a prop
+  console.log("this is props------", props);
 
   const dayListContainer = props.days.map((day) => {
     return (
@@ -11,7 +12,7 @@ export default function DayList(props) {
         key={day.id}
         name={day.name}
         spots={day.spots}
-        selected={day.name === props.value} // same as props.day
+        selected={day.name === props.day} // same as props.day
         setDay={props.setDay} // same as props.setDay
       />
     );

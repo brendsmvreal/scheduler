@@ -1,7 +1,7 @@
 import React from "react";
-import classNames from "classnames";
+import classNames from "classnames/bind";
 
-import "./DayListItem.scss";
+import "components/DayListItem.scss";
 
 export default function DayListItem(props) {
   // component takes 3 tributes, names - spots - selected
