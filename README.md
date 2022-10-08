@@ -8,11 +8,14 @@ The data is available and new data is collected using PostgresSQL on the backend
 The project also uses Storybooks to test every component individualy making sure that the action and css are as desired.
 Cypress and Jest frameworks are also used to ensure further testing to provide expected results.
 
-## Gifs
+## Gifs/Screenshot
 
 #### Create, Edit, Update and Delete an interview.
 
-<img src="https://media4.giphy.com/media/Ri8OoIqQWyjsAGpMEk/giphy.gif" width="600" height="400"></img>
+<img src="https://media4.giphy.com/media/Ri8OoIqQWyjsAGpMEk/giphy.gif" width="480px" height="auto"></img>
+
+![Main Page]()
+![Appointment Saved]()
 
 ## Setup
 
