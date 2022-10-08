@@ -9,8 +9,11 @@ The project also uses Storybooks to test every component individualy making sure
 Cypress and Jest frameworks are also used to ensure further testing to provide expected results.
 
 ## Gifs
+
 #### Create, Edit, Update and Delete an interview.
+
 ![Main Page](https://media4.giphy.com/media/Ri8OoIqQWyjsAGpMEk/giphy.gif)
+<img src="https://giphy.com/embed/Ri8OoIqQWyjsAGpMEk" width="480" height="224"></img>
 
 ## Setup
 
