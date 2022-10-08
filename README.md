@@ -10,7 +10,7 @@ Cypress and Jest frameworks are also used to ensure further testing to provide e
 
 ## Gifs
 
-![Main Page]([https://giphy.com/embed/dlWf7Hrt4GsPdxrDl0](https://media4.giphy.com/media/fdjT0AjP9IptIKg5oh/giphy.gif))
+![Main Page](https://media4.giphy.com/media/Ri8OoIqQWyjsAGpMEk/giphy.gif)
 
 ## Setup
 
