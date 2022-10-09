@@ -2,11 +2,9 @@
 
 ## Project Description
 
-Interview Scheduler is a single page application designed to allow students to book appointments with an interviewer of their choice any work day.
-In addition to that, students have the ability to edit, or even delete their appointments if they wish.<br />
-The data is available and new data is collected using PostgresSQL on the backend.<br />
-The project also uses Storybooks to test every component individualy making sure that the action and css are as desired.
-Cypress and Jest frameworks are also used to ensure further testing to provide expected results.
+Interview Scheduler is a single-page application designed to allow students to book appointments with an interviewer of their choice on any workday. In addition to that, students have the ability to edit, or even delete their appointments if they wish.
+The data is available and new data is collected using PostgresSQL on the backend.
+The project also uses Storybooks to test every component individually making sure that the action and css are as desired. Cypress and Jest frameworks are also used to ensure further testing to provide expected results.
 
 ## Gifs/Screenshot
 
