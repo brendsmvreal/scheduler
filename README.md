@@ -2,7 +2,7 @@
 
 ## Project Description
 
-Interview Schedulr is a single page application designed to allow students to book appointments with an interviewer of their choice any work day.
+Interview Scheduler is a single page application designed to allow students to book appointments with an interviewer of their choice any work day.
 In addition to that, students have the ability to edit, or even delete their appointments if they wish.<br />
 The data is available and new data is collected using PostgresSQL on the backend.<br />
 The project also uses Storybooks to test every component individualy making sure that the action and css are as desired.
