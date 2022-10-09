@@ -26,7 +26,7 @@ Cypress and Jest frameworks are also used to ensure further testing to provide e
 
 ### Scheduler-api
 
-- Scheduler api should be installed by forking and cloning [schedualer-api server](https://github.com/lighthouse-labs/scheduler-api).
+- Scheduler api should be installed by forking and cloning [scheduler-api server](https://github.com/lighthouse-labs/scheduler-api).
 - Follow with the README file.
 - Run the api server on a separate terminal using the command `npm start`.
 
