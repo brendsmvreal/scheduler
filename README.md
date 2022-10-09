@@ -1,4 +1,4 @@
-# Interview Schedualer
+# Interview Scheduler
 
 ## Project Description
 
