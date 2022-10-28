@@ -1,12 +1,10 @@
-# Interview Schedualer
+# Interview Scheduler
 
 ## Project Description
 
-Interview Schedualer is a single page application designed to allow students to book appointments with an interviewer of their choice any work day.
-In addition to that, students have the ability to edit, or even delete their appointments if they wish.<br />
-The data is available and new data is collected using PostgresSQL on the backend.<br />
-The project also uses Storybooks to test every component individualy making sure that the action and css are as desired.
-Cypress and Jest frameworks are also used to ensure further testing to provide expected results.
+Interview Scheduler is a single-page application designed to allow students to book appointments with an interviewer of their choice on any workday. In addition to that, students have the ability to edit, or even delete their appointments if they wish.<br />
+The data is available and new data are collected using PostgresSQL on the backend.<br />
+The project also uses Storybooks to test every component individually making sure that the action and css are as desired. Cypress and Jest frameworks are also used to ensure further testing to provide expected results.
 
 ## Gifs/Screenshot
 
@@ -26,7 +24,7 @@ Cypress and Jest frameworks are also used to ensure further testing to provide e
 
 ### Scheduler-api
 
-- Scheduler api should be installed by forking and cloning [schedualer-api server](https://github.com/lighthouse-labs/scheduler-api).
+- Scheduler api should be installed by forking and cloning [scheduler-api server](https://github.com/brendsmvreal/scheduler-api).
 - Follow with the README file.
 - Run the api server on a separate terminal using the command `npm start`.
 
